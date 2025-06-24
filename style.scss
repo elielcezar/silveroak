@@ -512,7 +512,14 @@ header {
 
 /*--- HERO ------------------------------------------------------------------------*/
 .hero{
-    .swiper{
+    .hero-swiper{
+        .swiper-wrapper{
+            .swiper-slide{
+                img{
+                    width: 100%;
+                }
+            }
+        }
         .swiper-slide{
             //position: relative;
             .content{
@@ -603,6 +610,7 @@ header {
             }
             p{
                 font-weight: 500;
+                font-size: 1.3rem;
             }
         }
     }
@@ -611,18 +619,59 @@ header {
 /*---BOOK NOW ------------------------------------------------------------------------*/
 
 .booknow{
-    padding: 20px 0;
+    padding: 50px 0;
     background-color: $darkgreen;
     color: #fff;
+    text-align: center;
     .container{
         max-width: 960px;
+
+        h2{
+          font-size: 1.8rem;
+          font-weight: 800;
+          margin-bottom: 20px;
+        }
+        h3{
+          margin: 40px auto 80px auto;
+          font-size: 1.6rem;
+          font-weight: 700;
+        }
+
+        .item{
+          img{
+            opacity: .75;
+            transition: all .3s ease;
+
+            &:hover{
+              opacity: 1;
+            }
+          }
+          .item-content{
+            padding: 10px;
+            background: $lightgreen;
+            text-align: left;
+
+            p{
+              margin: 0;
+            }
+          }
+        }
     }
 }
-/*--- ABOUT 1 ------------------------------------------------------------------------*/
 
+/*--- PHOTO GALLERY ------------------------------------------------------------------------*/
+.gallery{
+    padding: 50px 0;    
+    background: $black url(img/bg-gallery.jpg) center no-repeat;    
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+/*--- ABOUT 1 ------------------------------------------------------------------------*/
 .about1{
-    padding: 10px 0;
-    margin: 50px 0;
+    padding: 100px 0;
+    margin: 0;
     background-color: $ice;
     text-align: center;
 
@@ -643,13 +692,14 @@ header {
     }
     .col{
         text-align: left;
-        &.col-2{
+        &.col-1{
             padding: 10px 40px;
             h3{
                 font-weight: 700;
             }
             p{
                 font-weight: 500;
+                font-size: 1.3rem;
             }
         }
     }
@@ -688,6 +738,7 @@ header {
             }
             p{
                 font-weight: 500;
+                font-size: 1.3rem;
             }
         }
     }

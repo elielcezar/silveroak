@@ -59,7 +59,7 @@
     </header>
     
     <div class="hero">
-        <div class="swiper">                
+        <div class="swiper hero-swiper">                
             <div class="swiper-wrapper">                    
                 <div class="swiper-slide">                    
                     <img src="img/banner1.jpg" alt="Silver Oaks RV Park">
@@ -126,20 +126,20 @@
                     <img src="img/camping4.jpg" alt="Amenities">
                 </div>
                 <div class="col col-2">
-                    <ul>
-                        <li>
-                            On-Site clubhouse, laundry and bathhouse. 
-                        </li>
-                        <li>
+                   
+                        <p>
+                            On-Site clubhouse, laundry and bathhouse.
+                        </p>
+                        <p>
                             Spacious Barbecue area — tailored for both convenience and community gatherings.
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             Only 10 minutes from the beach, restaurants, and vibrant coastal attractions — while letting guests return to a peaceful, secure home base.
-                        </li>
-                        <li>
+                        </p>
+                        <p>
                             Perfect for crews — conveniently located near Citgo, Valero, Cheniere, and Bechtel plants.
-                        </li>
-                    </ul>
+                        </p>
+                   
     
                     <a href="" class="btn">BOOK NOW</a>
                 </div>                     
@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col col-1">
                     <div class="item">
-                        <img src="img/booknow-1.jpg" alt="Book Now">
+                        <img src="img/camping5.jpg" alt="Book Now">
                         <div class="item-content">
                             <h4>THE MIGHTY OAK </h4>
                             <p>Can accommodate RV’s up to 45 foot long</p>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col col-2">
                     <div class="item">
-                        <img src="img/booknow-1.jpg" alt="Book Now">
+                        <img src="img/camping5.jpg" alt="Book Now">
                         <div class="item-content">
                             <h4>THE ACORN </h4>
                             <p>Can accommodate RV’s up to 30 foot long</p>
@@ -188,7 +188,7 @@
                     <a href="" class="btn">RESERVE NOW</a>
                 </div>
                 <div class="col col-2">
-                    <img src="img/about1.jpg" alt="About 1">
+                    <img src="img/camping6.jpg" alt="About 1">
                 </div>
             </div>
         </div>
@@ -196,8 +196,55 @@
 
     <section class="gallery">
         <div class="container">
-            <h2>PHOTO GALLERY</h2>                        
+            <h2>PHOTO GALLERY</h2>  
             
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>                  
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/camping3.jpg" />
+                  </div>                  
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div thumbsSlider="" class="swiper thumbs-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/thumb.jpg" />
+                  </div>
+                  
+                </div>
+              </div>              
         </div>
     </section>
 
@@ -206,7 +253,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-1">
-                    <img src="img/about1.jpg" alt="About 1">
+                    <img src="img/camping2.jpg" alt="About 1">
                 </div>
                 <div class="col col-2">
                     <p>• Located just off Highway 35 in Aransas Pass — convenient located to Rockport, Port Aransas, and Corpus Christi — perfect for fishing, birding, beaches, and local dining. </p>
@@ -356,7 +403,7 @@
 
     <script>
 
-        const swiper = new Swiper('.swiper', {        
+        const swiper1 = new Swiper('.hero-swiper', {        
             loop: true,        
             pagination: {
                 el: '.swiper-pagination',
@@ -366,6 +413,23 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             }
+        });
+
+        var swiper2 = new Swiper(".thumbs-swiper", {
+            spaceBetween: 10,
+            slidesPerView: 6,
+            freeMode: true,
+            watchSlidesProgress: true,
+            });
+        var swiper3 = new Swiper(".gallery-swiper", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper2,
+            },
         });
         
     </script>
