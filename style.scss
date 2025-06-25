@@ -814,6 +814,7 @@ header {
 /*--- RATES ------------------------------------------------------------------------*/
 #rates{  
   background: $midgray;
+  padding: 40px 0;
 
   @media(orientation: landscape){
     padding: 40;

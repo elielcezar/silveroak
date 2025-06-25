@@ -752,6 +752,7 @@ header nav img.logo {
 /*--- RATES ------------------------------------------------------------------------*/
 #rates {
   background: #C8D4DE;
+  padding: 40px 0;
 }
 @media (orientation: landscape) {
   #rates {
