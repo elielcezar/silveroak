@@ -4,6 +4,7 @@ $lightgreen: #728665;
 $yellow: #FDBC0E;
 $ice: #F4FAFF;
 $midgray: #C8D4DE;
+$textgray: #666666;
 
 /* CSS Reset */
 * {
@@ -26,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 60px;
+  padding-top: 50px;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -41,6 +42,7 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0;
+    position: relative;
 
     @media(max-width: 1400px){
         max-width: 1200px;
@@ -434,9 +436,17 @@ input:-webkit-autofill:active {
     display: flex;
     gap: 20px;
 
+    @media(orientation: portrait){
+      flex-direction: column;
+    }
+
     .col-1,
     .col-2{
         width: 50%;
+
+        @media(orientation: portrait){
+          width: 100%;
+        }
     }
 }
 
@@ -465,6 +475,7 @@ header {
     position: absolute;
     top: 0;
     z-index: 10;
+
     .top-header{
         width: 100%;
         background: $darkgreen;
@@ -473,19 +484,54 @@ header {
         font-size: 14px;
         .container{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 10px 0;    
+            padding: 10px 0; 
+            height: 50px;
+            
+            .phone{
+              position: absolute;
+              left: 0;
+            }
             
             .tagline{
-                text-transform: uppercase;
+                text-transform: uppercase;                
+            }
+
+            .cta{
+              display: flex;
+              gap: 40px;
+              align-items: center;
+              position: absolute;
+              right: 0;
+
+              a.btn{
+                min-width: 100px;
+                padding: 7px 20px;
+                letter-spacing: 2px;
+                font-weight: 500;  
+                
+                &:hover{
+                  background: #fff;
+                  color: $darkgreen;
+                }
+              }
+
+              .ico-insta{
+                width: 20px;
+                height: 20px;
+              }
             }
         }
     }
     nav{
         width: 100%;
-        padding: 10px 0 5px 0;
+        padding: 0;
         background-color: rgba(255,255,255,.75);
+
+        @media(orientation: portrait){
+          display: none;
+        }
 
         ul{
             display: flex;
@@ -496,9 +542,26 @@ header {
             li{                
                 width: 20%;
                 text-align: center;
+                margin: 0;
                 a{
                     color: $darkgreen;
                     font-weight: 800;
+                    transition: all .3s ease;
+                    display: inline-block;
+                    padding: 7px 10px;
+                    border-radius: 50px;                    
+                }
+
+                &:nth-child(1),
+                &:nth-child(2),                    
+                &:nth-child(4),
+                &:nth-child(5){
+                  a{
+                    &:hover{
+                      color: #fff;
+                      background: $darkgreen;
+                    }
+                  }
                 }
             }
         }
@@ -749,9 +812,13 @@ header {
 }
 
 /*--- RATES ------------------------------------------------------------------------*/
-#rates{
-  padding: 40px;
+#rates{  
   background: $midgray;
+
+  @media(orientation: landscape){
+    padding: 40;
+  }
+
   h2{
     text-align: center;
     margin: 0 0 40px 0;
@@ -767,12 +834,56 @@ header {
 
     h3{
       font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: 2px;
+      margin: 40px 0;
     }
 
     .rates{
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: start;
+      max-width: 960px;
+      margin: auto;
+      margin-bottom: 40px;
+
+      @media(orientation: portrait){
+        flex-direction: column;
+      }
+
+      .item{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+
+        @media(orientation: portrait){
+          width: 100%;
+        }
+  
+
+        .icon{
+          background: transparent url(img/elipse.svg) center no-repeat;
+          background-size: 100% auto;
+          width: 175px;
+          height: 175px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: auto;
+          margin-bottom: 20px;
+
+          img{
+            max-width: 125px;
+          }
+        }
+        h4{
+          font-size: 1.75rem;
+        }
+        p{
+          font-size: 1.75rem;
+        }
+      }
     }
   }
 
@@ -782,6 +893,7 @@ header {
 .attractions{
   text-align: center;
   background: $ice;
+  padding: 20px 0 0 0;
 
   h2{
     margin: 40px 0;
@@ -790,10 +902,19 @@ header {
     .swiper-slide{
       display: flex;
       background: $lightgreen;      
+
+      @media(orientation: portrait){
+        flex-direction: column;
+      }
+
       .col{
         width: 50%;
         color: #fff;
         text-align: left;
+
+        @media(orientation: portrait){
+          width: 100%;
+        }
 
         &.col-2{
           display: flex;
@@ -816,9 +937,72 @@ header {
 .contact{
   text-align: center;
   background: $ice;
-  padding: 40px 0;
+  padding: 20px 0 40px 0;
 
   h2{
     margin: 40px 0;
   }
+
+  .map{
+    margin-bottom: 40px;
+  }
+  
+}
+
+/*--- FOOTER ------------------------------------------------------------------------*/
+footer{
+  padding: 60px 0;
+  color: $textgray;
+  font-size: .9rem;
+
+  h5{
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .container{
+    > .row{      
+      > .col-1{
+        @media(orientation: landscape){
+          border-right: 1px solid #000;
+        }
+        > .row{
+          .col-1{
+            text-align: center;
+            
+            @media(orientation: landscape){
+              width: 70%;
+            }
+            img{
+              display: inline-block;
+              margin: auto;
+            }
+          }
+          .col-2{            
+            @media(orientation: landscape){
+              width: 30%;              
+            }
+            @media(orientation: portrait){
+              text-align: center;
+            }
+            ul{
+              li{
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+      > .col-2{        
+        @media(orientation: landscape){
+          padding-left: 75px;
+        }
+        @media(orientation: portrait){
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  
 }

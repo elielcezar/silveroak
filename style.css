@@ -20,7 +20,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 60px;
+  padding-top: 50px;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -35,6 +35,7 @@ body {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0;
+  position: relative;
 }
 @media (max-width: 1400px) {
   .container {
@@ -426,9 +427,20 @@ input:-webkit-autofill:active {
   display: flex;
   gap: 20px;
 }
+@media (orientation: portrait) {
+  .row {
+    flex-direction: column;
+  }
+}
 .row .col-1,
 .row .col-2 {
   width: 50%;
+}
+@media (orientation: portrait) {
+  .row .col-1,
+  .row .col-2 {
+    width: 100%;
+  }
 }
 
 a.btn {
@@ -464,17 +476,48 @@ header .top-header {
 }
 header .top-header .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 0;
+  height: 50px;
+}
+header .top-header .container .phone {
+  position: absolute;
+  left: 0;
 }
 header .top-header .container .tagline {
   text-transform: uppercase;
 }
+header .top-header .container .cta {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+header .top-header .container .cta a.btn {
+  min-width: 100px;
+  padding: 7px 20px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+header .top-header .container .cta a.btn:hover {
+  background: #fff;
+  color: #273A1B;
+}
+header .top-header .container .cta .ico-insta {
+  width: 20px;
+  height: 20px;
+}
 header nav {
   width: 100%;
-  padding: 10px 0 5px 0;
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.75);
+}
+@media (orientation: portrait) {
+  header nav {
+    display: none;
+  }
 }
 header nav ul {
   display: flex;
@@ -486,10 +529,19 @@ header nav ul {
 header nav ul li {
   width: 20%;
   text-align: center;
+  margin: 0;
 }
 header nav ul li a {
   color: #273A1B;
   font-weight: 800;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 50px;
+}
+header nav ul li:nth-child(1) a:hover, header nav ul li:nth-child(2) a:hover, header nav ul li:nth-child(4) a:hover, header nav ul li:nth-child(5) a:hover {
+  color: #fff;
+  background: #273A1B;
 }
 header nav img.logo {
   width: 200px;
@@ -699,8 +751,12 @@ header nav img.logo {
 
 /*--- RATES ------------------------------------------------------------------------*/
 #rates {
-  padding: 40px;
   background: #C8D4DE;
+}
+@media (orientation: landscape) {
+  #rates {
+    padding: 40;
+  }
 }
 #rates h2 {
   text-align: center;
@@ -716,17 +772,60 @@ header nav img.logo {
 }
 #rates .wrapper h3 {
   font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  margin: 40px 0;
 }
 #rates .wrapper .rates {
   display: flex;
   justify-content: space-between;
+  align-items: start;
+  max-width: 960px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+@media (orientation: portrait) {
+  #rates .wrapper .rates {
+    flex-direction: column;
+  }
+}
+#rates .wrapper .rates .item {
+  display: flex;
   align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+@media (orientation: portrait) {
+  #rates .wrapper .rates .item {
+    width: 100%;
+  }
+}
+#rates .wrapper .rates .item .icon {
+  background: transparent url(img/elipse.svg) center no-repeat;
+  background-size: 100% auto;
+  width: 175px;
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+#rates .wrapper .rates .item .icon img {
+  max-width: 125px;
+}
+#rates .wrapper .rates .item h4 {
+  font-size: 1.75rem;
+}
+#rates .wrapper .rates .item p {
+  font-size: 1.75rem;
 }
 
 /*--- ATTRACTIONS ------------------------------------------------------------------------*/
 .attractions {
   text-align: center;
   background: #F4FAFF;
+  padding: 20px 0 0 0;
 }
 .attractions h2 {
   margin: 40px 0;
@@ -735,10 +834,20 @@ header nav img.logo {
   display: flex;
   background: #728665;
 }
+@media (orientation: portrait) {
+  .attractions .swiper .swiper-slide {
+    flex-direction: column;
+  }
+}
 .attractions .swiper .swiper-slide .col {
   width: 50%;
   color: #fff;
   text-align: left;
+}
+@media (orientation: portrait) {
+  .attractions .swiper .swiper-slide .col {
+    width: 100%;
+  }
 }
 .attractions .swiper .swiper-slide .col.col-2 {
   display: flex;
@@ -756,8 +865,62 @@ header nav img.logo {
 .contact {
   text-align: center;
   background: #F4FAFF;
-  padding: 40px 0;
+  padding: 20px 0 40px 0;
 }
 .contact h2 {
   margin: 40px 0;
+}
+.contact .map {
+  margin-bottom: 40px;
+}
+
+/*--- FOOTER ------------------------------------------------------------------------*/
+footer {
+  padding: 60px 0;
+  color: #666666;
+  font-size: 0.9rem;
+}
+footer h5 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+@media (orientation: landscape) {
+  footer .container > .row > .col-1 {
+    border-right: 1px solid #000;
+  }
+}
+footer .container > .row > .col-1 > .row .col-1 {
+  text-align: center;
+}
+@media (orientation: landscape) {
+  footer .container > .row > .col-1 > .row .col-1 {
+    width: 70%;
+  }
+}
+footer .container > .row > .col-1 > .row .col-1 img {
+  display: inline-block;
+  margin: auto;
+}
+@media (orientation: landscape) {
+  footer .container > .row > .col-1 > .row .col-2 {
+    width: 30%;
+  }
+}
+@media (orientation: portrait) {
+  footer .container > .row > .col-1 > .row .col-2 {
+    text-align: center;
+  }
+}
+footer .container > .row > .col-1 > .row .col-2 ul li {
+  margin: 0;
+}
+@media (orientation: landscape) {
+  footer .container > .row > .col-2 {
+    padding-left: 75px;
+  }
+}
+@media (orientation: portrait) {
+  footer .container > .row > .col-2 {
+    text-align: center;
+  }
 }/*# sourceMappingURL=style.css.map */
