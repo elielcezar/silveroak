@@ -623,6 +623,9 @@ header nav img.logo {
   text-align: center;
   color: #fff;
 }
+.gallery .container {
+  max-width: 1000px;
+}
 
 /*--- ABOUT 1 ------------------------------------------------------------------------*/
 .about1 {
@@ -692,4 +695,69 @@ header nav img.logo {
 .about2 .col.col-2 p {
   font-weight: 500;
   font-size: 1.3rem;
+}
+
+/*--- RATES ------------------------------------------------------------------------*/
+#rates {
+  padding: 40px;
+  background: #C8D4DE;
+}
+#rates h2 {
+  text-align: center;
+  margin: 0 0 40px 0;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  background: #C8D4DE;
+}
+#rates .wrapper {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+}
+#rates .wrapper h3 {
+  font-weight: 700;
+}
+#rates .wrapper .rates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*--- ATTRACTIONS ------------------------------------------------------------------------*/
+.attractions {
+  text-align: center;
+  background: #F4FAFF;
+}
+.attractions h2 {
+  margin: 40px 0;
+}
+.attractions .swiper .swiper-slide {
+  display: flex;
+  background: #728665;
+}
+.attractions .swiper .swiper-slide .col {
+  width: 50%;
+  color: #fff;
+  text-align: left;
+}
+.attractions .swiper .swiper-slide .col.col-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+.attractions .attractions-preview {
+  padding: 40px 0;
+  background: #273A1B;
+  color: #fff;
+}
+
+/*--- CONTACT ------------------------------------------------------------------------*/
+.contact {
+  text-align: center;
+  background: #F4FAFF;
+  padding: 40px 0;
+}
+.contact h2 {
+  margin: 40px 0;
 }/*# sourceMappingURL=style.css.map */
