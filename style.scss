@@ -814,6 +814,7 @@ header {
 /*--- RATES ------------------------------------------------------------------------*/
 #rates{  
   background: $midgray;
+  padding: 40px 0;
 
   @media(orientation: landscape){
     padding: 40;
@@ -843,7 +844,7 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: start;
-      max-width: 960px;
+      //max-width: 960px;
       margin: auto;
       margin-bottom: 40px;
 
@@ -856,6 +857,7 @@ header {
         align-items: center;
         justify-content: start;
         flex-direction: column;
+        width: 33.33%;
 
         @media(orientation: portrait){
           width: 100%;

@@ -361,19 +361,18 @@
     <section class="contact" id="contact">
         <h2>CONTACT AND RESERVATIONS</h2>
         <div class="map">
-            <!-- Versão temporária com iframe - substitua pela versão com API quando tiver a chave -->
-            <iframe 
+            <!-- Versão temporária com iframe - removida após configuração da API -->
+            <!-- <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79746.06263070955!2d-97.1542304979562!3d27.953749367504525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86684da01c5c0593%3A0x569685fbb6bf25e6!2s1376%20Longoria%20Rd%2C%20Aransas%20Pass%2C%20TX%2078336%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1750847328549!5m2!1spt-BR!2sbr" 
                 width="100%" 
-                height="450" 
-                style="border:0; filter: invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2);" 
+                height="450"                 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            </iframe> -->
             
-            <!-- Versão com API customizada - descomente quando tiver a chave -->
-            <!-- <div id="map" style="width: 100%; height: 450px;"></div> -->
+            <!-- Versão com API customizada - ATIVA com estilo personalizado -->
+            <div id="map" style="width: 100%; height: 450px;"></div>
         </div>
         <div class="container">
             <div class="contact-content">
@@ -444,12 +443,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     
-    <!-- Google Maps API - descomente quando tiver a chave da API -->
-    <!--
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_AQUI&callback=initMap">
-    </script>
-    -->
+    <!-- Google Maps API - CONFIGURADA E ATIVA -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvTjSEZchkIn-Uwnm0R6eCjrrdx-hhvfE&callback=initMap"></script>    
 
     <script>
 
@@ -494,12 +489,10 @@
             }
         });
 
-        // Função para inicializar o Google Maps com estilo noturno customizado
-        // Descomente quando tiver a chave da API
-        /*
+        // Função para inicializar o Google Maps com estilo azul escuro customizado
         function initMap() {
-            // Coordenadas do Silver Oaks RV Park
-            const silverOaksLocation = { lat: 27.953749367504525, lng: -97.1542304979562 };
+            // Coordenadas exatas do Silver Oaks RV Park - 1376 Longoria Rd
+            const silverOaksLocation = { lat: 27.9510133, lng: -97.1368 };
 
             // Estilo noturno customizado com tons de azul escuro
             const customMapStyle = [
@@ -507,7 +500,8 @@
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#1a237e"
+                            //"color": "#1a237e"
+                            "color": "#ff2c2c"
                         }
                     ]
                 },
@@ -532,7 +526,7 @@
                     "elementType": "geometry.stroke",
                     "stylers": [
                         {
-                            "color": "#3f51b5"
+                            "color": "#ff2c2c"
                         }
                     ]
                 },
@@ -550,7 +544,7 @@
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#283593"
+                            "color": "#1a3e56"
                         }
                     ]
                 },
@@ -604,7 +598,7 @@
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#5c6bc0"
+                            "color": "#2c466e"
                         }
                     ]
                 },
@@ -613,7 +607,7 @@
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#7986cb"
+                            "color": "#3d6573"
                         }
                     ]
                 },
@@ -631,7 +625,7 @@
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#3949ab"
+                            "color": "#344978"
                         }
                     ]
                 },
@@ -662,17 +656,18 @@
                 styles: customMapStyle,
                 mapTypeControl: false,
                 streetViewControl: false,
-                fullscreenControl: false
+                fullscreenControl: false,
+                gestureHandling: 'greedy'  // Permite zoom com scroll do mouse sem Ctrl
             });
 
-            // Marcador customizado
+            // Marcador customizado (tamanho dobrado)
             const marker = new google.maps.Marker({
                 position: silverOaksLocation,
                 map: map,
                 title: "Silver Oaks RV Park",
                 icon: {
                     url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDBC0E"/>
                         </svg>
                     `)
@@ -695,7 +690,7 @@
                  infoWindow.open(map, marker);
              });
          }
-         */
+         
         
     </script>
 </body>
