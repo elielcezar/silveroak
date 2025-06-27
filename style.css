@@ -602,11 +602,26 @@ header nav img.logo {
 .hero .hero-swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
 }
+@media (orientation: portrait) {
+  .hero .hero-swiper .swiper-slide img.desk {
+    display: none;
+  }
+}
+@media (orientation: landscape) {
+  .hero .hero-swiper .swiper-slide img.mob {
+    display: none;
+  }
+}
 .hero .hero-swiper .swiper-slide .content {
   width: 100%;
   position: absolute;
   top: 45%;
   left: 0;
+}
+@media (orientation: portrait) {
+  .hero .hero-swiper .swiper-slide .content {
+    top: 20%;
+  }
 }
 .hero .hero-swiper .swiper-slide .content .container {
   max-width: 1100px;
@@ -632,13 +647,31 @@ header nav img.logo {
     line-height: 3.8rem;
   }
 }
+@media (orientation: portrait) {
+  .hero .hero-swiper .swiper-slide .content h3 {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    max-width: 100%;
+    width: 100%;
+  }
+}
 .hero .hero-swiper .swiper-button-prev {
   left: var(--swiper-navigation-sides-offset, 50px);
   top: var(--swiper-navigation-top-offset, 55%);
 }
+@media (orientation: portrait) {
+  .hero .hero-swiper .swiper-button-prev {
+    display: none;
+  }
+}
 .hero .hero-swiper .swiper-button-next {
   right: var(--swiper-navigation-sides-offset, 50px);
   top: var(--swiper-navigation-top-offset, 55%);
+}
+@media (orientation: portrait) {
+  .hero .hero-swiper .swiper-button-next {
+    display: none;
+  }
 }
 
 /*--- WHY CHOOSE ------------------------------------------------------------------------*/

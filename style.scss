@@ -631,12 +631,26 @@ header {
                 }
             }
         }
-        .swiper-slide{            
+        .swiper-slide{    
+          img.desk{
+            @media(orientation: portrait){
+              display: none;
+            }        
+          }
+          img.mob{
+            @media(orientation: landscape){
+              display: none;
+            }        
+          }
             .content{
                 width: 100%;                                
                 position: absolute;
                 top: 45%;
                 left: 0;
+
+                @media(orientation: portrait){
+                  top: 20%;                  
+                }
 
                 .container{                    
                     max-width: 1100px;
@@ -658,7 +672,14 @@ header {
 
                     @media(min-width: 1400px){
                       font-size: 3.4rem;
-                      line-height: 3.8rem;
+                      line-height: 3.8rem;                      
+                    }
+
+                    @media(orientation: portrait){
+                      font-size: 2rem;
+                      line-height: 2.25rem;       
+                      max-width: 100%;
+                      width: 100%;         
                     }
                 }
 
@@ -667,10 +688,18 @@ header {
         .swiper-button-prev{
           left: var(--swiper-navigation-sides-offset, 50px);
           top: var(--swiper-navigation-top-offset, 55%);
+
+          @media(orientation: portrait){
+            display: none;
+          }
         }
         .swiper-button-next{
           right: var(--swiper-navigation-sides-offset, 50px);
           top: var(--swiper-navigation-top-offset, 55%);
+
+          @media(orientation: portrait){
+            display: none;
+          }
         }
     }
 }
