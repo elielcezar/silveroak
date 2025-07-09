@@ -6,6 +6,10 @@ $ice: #F4FAFF;
 $midgray: #C8D4DE;
 $textgray: #666666;
 
+#wpadminbar{
+  display: none !important;
+}
+
 /* CSS Reset */
 * {
   margin: 0;
@@ -489,6 +493,184 @@ a.btn{
   opacity: .9;
 }  
 
+/*--------------------------------------------*/
+/* menu button */
+.menuBtn,
+.menuBtn2 {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  right: 7%;
+  cursor: pointer;
+
+  @media(orientation:landscape) {
+    display: none;
+  }
+
+  >span {
+    background-color: #fff;
+    border-radius: 1px;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -1px 0 0 -15px;
+    transition: height 100ms;
+
+    &:after,
+    &:before {
+      content: '';
+      background-color: #fff;
+      border-radius: 1px;
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      margin-left: -15px;
+      transition: all 200ms;
+    }
+
+    &:after {
+      top: -9px;
+    }
+
+    &:before {
+      bottom: -9px;
+    }
+  }
+}
+
+
+.menuBtn.act,
+.menuBtn2.act {
+  >span {
+    height: 0;
+
+    &:after,
+    &:before {
+      top: 1px;
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+/*---MENU MOBILE ------------------------------------------------------------------------*/
+
+/* main menu block */
+.menu-mobile {
+  overflow: hidden;
+  background: #f9f9f9;
+  top: 0;
+  left: -100%;
+  z-index: 10;
+  width: 94%;
+  opacity: 0;
+  left: -100%;
+  transition: all .3s;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+
+  img {
+    max-width: 150px;
+    position: absolute;
+    top: 20px;
+    left: 10%;
+  }
+
+  .menuBtn2 {
+    left: auto;
+    right: 5%;
+    top: 38px;
+
+    @media(orientation:landscape) {
+      display: none;
+    }
+
+    >span{
+      background: $darkgreen;
+
+      &:after,
+      &:before {
+        content: '';
+        background-color: $darkgreen;        
+      }
+    }
+  }
+
+  nav {
+    width: 90%;
+
+    ul.menu {
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 2vh 0;
+        border-bottom: 1px solid #acb1c9;
+        margin: 0;
+
+        a {
+          font-size: 18px;
+          color: $darkgreen;
+          text-decoration: none;
+          font-weight: 800;
+          letter-spacing: 1px;
+        }
+      }
+      li.cta{
+        border: none;
+        background: $darkgreen;
+        text-transform: uppercase;
+        border-radius: 5px;
+        box-shadow: 0 3px 3px rgba(0,0,0,.15);
+        text-align: center;
+        font-weight: 800;
+        margin-bottom: 20px;
+
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.act {
+  .menu-mobile {
+    opacity: 1;
+    padding: 25px;
+    left: 0;
+  }
+}
+
+body.act {
+  .overlay {
+      @media(orientation:portrait) {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.75);
+          z-index: 10;
+      }
+  }
+}
+
 
 
 /*--- HEADER ------------------------------------------------------------------------*/
@@ -507,6 +689,7 @@ header {
 
         @media(orientation: portrait){
           padding: 10px 0;
+          position: fixed;
         }
         .container{
             display: flex;
@@ -523,11 +706,13 @@ header {
               align-items: center;
               gap: 10px;
 
+              @media(orientation: portrait){
+                display: none;
+              }
+
               img{
                 width: 40px;
-                height: auto;
-
-                
+                height: auto;                
               }
             }
             
@@ -547,6 +732,11 @@ header {
 
               @media(orientation: landscape){
                 gap: 20px;
+              }
+
+              @media(orientation: portrait){
+                right: auto;
+                left: 20px;
               }
 
               a.btn{
@@ -648,8 +838,9 @@ header {
                 top: 45%;
                 left: 0;
 
-                @media(orientation: portrait){
-                  top: 20%;                  
+                @media(orientation: portrait){                  
+                  top: auto;
+                  bottom: 20px;
                 }
 
                 .container{                    
@@ -902,6 +1093,11 @@ header {
       max-width: 600px;
       margin: 0 auto 40px auto;
   }
+  .row{
+    @media(orientation: portrait){
+      flex-direction: column-reverse;
+    }
+  }
   .col{
       text-align: left;
       &.col-1{
@@ -1077,9 +1273,7 @@ header {
         }
   
 
-        .icon{
-          background: transparent url(img/elipse.svg) center no-repeat;
-          background-size: 100% auto;
+        .icon{                    
           width: 175px;
           height: 175px;
           display: flex;
@@ -1087,16 +1281,14 @@ header {
           justify-content: center;
           margin: auto;
           margin-bottom: 20px;
-
-          img{
-            max-width: 125px;
-          }
+          
         }
         h4{
           font-size: 1.75rem;
         }
         p{
           font-size: 1.75rem;
+          margin-bottom: 0;
 
           span{
             font-size: 1.25rem;
@@ -1124,37 +1316,60 @@ header {
     letter-spacing: 4px;
     font-size: 1.85rem;
   }
-  .swiper{
+  .swiper{    
     .swiper-slide{
-      display: flex;
-      background: $lightgreen;      
+      display: flex; 
+      flex-direction: column; 
+      background: $lightgreen;       
 
       @media(orientation: portrait){
         flex-direction: column;
       }
 
       .col{
-        width: 50%;
+        //width: 50%;
         color: #fff;
         text-align: left;
 
         @media(orientation: portrait){
           width: 100%;
         }
+        
+          img{
+            width: 100%;
+            height: auto;
+          }
+        
 
         &.col-2{
           display: flex;
           flex-direction: column;
           justify-content: center;
           padding: 20px 40px;
+          min-height: 340px;
 
           h3{
             font-size: 1.5rem;
             margin-bottom: 20px;
+
+            a{
+              color: #fff;
+              &:hover{
+                background-color: $darkgreen;
+                color: #fff;
+              }
+            }
           }
           p{
             font-size: 1.25rem;
             max-width: 650px;
+            a{
+              color: #fff;
+              &:hover{
+                background-color: $darkgreen;
+                color: #fff;
+              }
+            }
           }
         }
       }        
@@ -1162,9 +1377,29 @@ header {
 
     .swiper-button-next,
     .swiper-button-prev{
+      cursor: pointer;
+      border: 2px solid #fff;
+      width: 70px;
+      height: 70px;
+      border-radius: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(12, 65, 12, 0.57);
+      
+
       @media(orientation: portrait){
         display: none;
       }
+    }
+
+    .swiper-button-prev:after, 
+    .swiper-rtl .swiper-button-next:after {      
+      margin-left: -10px;
+    }
+    .swiper-button-next:after, 
+    .swiper-rtl .swiper-button-next:after {      
+      margin-right: -5px;
     }
   }
   .attractions-preview{
@@ -1236,6 +1471,10 @@ header {
 
   .map{
     margin-bottom: 40px;
+
+    .gm-style-iw-chr{
+      display: none !important;
+    }
   }
 
   .contact-content{
@@ -1309,9 +1548,19 @@ footer{
             @media(orientation: portrait){
               text-align: center;
             }
-            ul{
+            ul.social-media{
               li{
-                margin: 0;
+                margin: 0 0 10px 0;
+                a{
+                  display: flex;
+                  align-items: center;
+                  justify-content: start;
+                  gap: 5px;
+
+                  img{
+                    max-width: 18px;
+                  }
+                }
               }
             }
           }
